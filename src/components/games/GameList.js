@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router"
+import { Link } from "react-router-dom"
 import { GameContext } from "./GameProvider.js"
 
 export const GameList = (props) => {
@@ -25,11 +26,7 @@ export const GameList = (props) => {
                                 history.push({ pathname: `/games/${game.id}/edit` })
                             }}
                         >Edit</button>
-                        <div className="game__title">{game.title} by {game.maker}</div>
-                        <div className="game__players">{game.number_of_players} players needed</div>
-                        <div className="game__skillLevel">Skill level is {game.skill_level}</div>
-                        <div className="game__associatedEvents">Associated Events: {game.event_count}</div>
-                        {game.user_event_count > 0 && <div className="game__userGameEvents">Your game is scheduled for {game.user_event_count} event{game.user_event_count > 1 && "s"}!</div>}
+                        <Link className="nav-link" to={`/games/${game.id}/detail`} ><div className="game__title">{game.title} by {game.designer}</div></Link>
                     </section>
                 })
             }
