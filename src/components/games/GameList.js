@@ -22,6 +22,7 @@ export const GameList = (props) => {
                 games.map(game => {
                     return <section key={`game--${game.id}`} className="game">
                         <Link className="nav-link" to={`/games/${game.id}/detail`} ><div className="game__title">{game.title} by {game.designer}</div></Link>
+                        <p onClick={() => history.push(`/games/${game.id}/reviews`)}>see reviews</p>
                     </section>
                 })
             }
