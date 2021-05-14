@@ -21,11 +21,6 @@ export const GameList = (props) => {
             {
                 games.map(game => {
                     return <section key={`game--${game.id}`} className="game">
-                        <button className="btn btn-2 btn-sep icon-create"
-                            onClick={() => {
-                                history.push({ pathname: `/games/${game.id}/edit` })
-                            }}
-                        >Edit</button>
                         <Link className="nav-link" to={`/games/${game.id}/detail`} ><div className="game__title">{game.title} by {game.designer}</div></Link>
                     </section>
                 })
